@@ -1,0 +1,27 @@
+import java.util.*;
+public class Essay extends TestQuestion
+{
+    Scanner scan = new Scanner(System.in);
+    public String question = "";
+    String bluh = "";
+    public int lines = 0;
+    
+    public Essay() {
+        
+    }
+
+    protected void readQuestion() {
+        System.out.println("Please enter your question.");
+        question = scan.nextLine();
+        System.out.println("How many answer lines do you want for your question?");
+        lines = scan.nextInt();
+    }
+    
+    public String toString() {
+        System.out.println(question + "\n");
+        for(int x = 0; x < lines; x++) {            
+            System.out.println("_________________________________________________");
+        }
+        return "\n";
+    }
+}
