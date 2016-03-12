@@ -1,0 +1,8 @@
+public abstract class TestQuestion
+{
+    
+    public TestQuestion() {
+    }
+    
+    protected abstract void readQuestion();
+}
