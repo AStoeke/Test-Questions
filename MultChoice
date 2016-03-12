@@ -1,0 +1,67 @@
+import java.util.*;
+
+public class MultChoice extends TestQuestion
+{
+    String [] choices;
+    public int answers = 0;
+    Scanner scan = new Scanner(System.in);
+    int place = 0;
+    String bluh = "";
+    
+    public MultChoice() {
+        
+    }
+
+    protected void readQuestion() {
+        System.out.println("How many answers would you like to have?");
+        answers = scan.nextInt();
+        choices = new String[answers + 1];
+        
+        System.out.println("Please enter your question.");
+        bluh = scan.nextLine();
+        choices[place] = scan.nextLine();
+        place++;  
+        
+        if(answers != 0) {
+            for(int x = 0; x < answers; x++) {
+                System.out.println("Please enter answer number " + (x + 1));
+                /*if(x == 0) {
+                    bluh = scan.nextLine();
+                }*/
+                choices[place] = scan.nextLine();
+                place++;
+            }
+        }
+        else {
+            System.out.println("Improbable number of answers. Continuing.");
+        }
+    }
+    
+    public String toString() {
+        String place = "";
+        System.out.println(choices[0] + "\n");
+        for(int y = 0; y < choices.length; y++) {
+            if(y == 0) {
+                place = "Question";
+            }
+            else if(y == 1) {
+                place = "A";
+            }
+            else if(y == 2) {
+                place = "B";
+            }
+            else if(y == 3) {
+                place = "C";
+            }
+            else if(y == 4) {
+                place = "D";
+            }
+            else {
+                place = "E";
+            }
+            
+            System.out.println("\t" + place + ") " + choices[y]);
+        }
+        return "\n";
+    }
+}
