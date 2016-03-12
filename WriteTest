@@ -1,0 +1,39 @@
+import java.util.*;
+public class WriteTest
+{
+    public static void main (String[] args){
+        Scanner scan = new Scanner(System.in);
+        TestQuestion [] tq;
+        int place = 0;
+        String bluh = "";
+        
+        System.out.println("Please enter how many questions there will be.");
+        int num = scan.nextInt();
+        
+        tq = new TestQuestion[num];
+        
+        for(int x = 0; x < num; x++) {        
+           System.out.println("Would you like number " + (x + 1) + " to be multiple choice (m) or essay (e)?");
+           if(x == 0){
+               bluh = scan.nextLine();
+           }
+           String type = scan.nextLine();
+            if (type.equalsIgnoreCase("e")) {
+                tq[x] = new Essay();
+                tq[x].readQuestion();
+            }
+            else if (type.equalsIgnoreCase("m")) {
+                tq[x] = new MultChoice();
+                tq[x].readQuestion();
+            }
+            else {
+                System.out.println("Sorry, unknown response. Please try again.");
+                x--;
+           }
+        }
+        
+        for(int z = 0; z < tq.length; z++) {
+            System.out.println(tq[z]);
+        }
+    }
+}
